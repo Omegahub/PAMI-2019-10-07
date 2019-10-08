@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
         {
            CustomDialog dialog = new CustomDialog(this);
            dialog.show(getFragmentManager(), "CunstomDialog");
+
+           insertMode = true;
         }
             return super.onOptionsItemSelected(item);
 
