@@ -4,9 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity implements CustomDialog.ItemListener{
+public class MainActivity extends AppCompatActivity implements CustomDialog.ItemListener, AdapterView.OnItemLongClickListenerClickListener {
 
 
     private boolean insertMode;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
 
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
             adapter.updateItem(selectedItem, name);
         }
     }
+
 
 
 
