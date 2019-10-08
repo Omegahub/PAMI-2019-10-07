@@ -2,9 +2,11 @@ package br.com.etechoracio.atividade;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity implements CustomDialog.ItemListener{
+
 
     private boolean insertMode;
     private ItemAdapter adapter;
@@ -12,6 +14,15 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
 
     private String selectedItemName;
     private int selectedItem;
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +44,7 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
             adapter.updateItem(selectedItem, name);
         }
     }
+
+
 
 }
