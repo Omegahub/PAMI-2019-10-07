@@ -70,9 +70,22 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
         PopupMenu popup = new PopupMenu(this,view);
         popup.inflate(R.menu.menu_ee);
+        popup.setOnMenuItemClickListener(this);
         popup.show();
 
         return true;
     }
 
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        if(menuItem.getItemId() == R.id.action_Editar)
+        {
+            CustomDialog dialog = new CustomDialog(this);
+            dialog.show(getFragmentManager(), "CunstomDialog");
+        }
+
+        return super.onOptionsItemSelected(menuItem);
+
+
+    }
 }
