@@ -78,18 +78,28 @@ public class MainActivity extends AppCompatActivity implements CustomDialog.Item
 
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
+        if(menuItem.getItemId() == R.id.action_Excluir) {
 
-            case R.id.action_Excluir:
-                adapter.removeItem(selectedItem);
+            adapter.removeItem(selectedItem);
+
+            insertMode = false;
+            return true;
+        }
+        else if(menuItem.getItemId() == R.id.action_Editar){
+
+                CustomDialog dialog = new CustomDialog(this);
+                dialog.show(getFragmentManager(), "action_Editar");
+
                 insertMode = false;
                 return true;
-
-
-
-            default:
-                return super.onOptionsItemSelected(menuItem);
         }
+        else{
+            return super.onOptionsItemSelected(menuItem);
+        }
+
+
+
+
 
     }
 }
